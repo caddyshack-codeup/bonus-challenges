@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>more14 Function</title>
+</head>
+<body>
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+
+        ///////////////////////////////////////////
+        ///////////// more14 Function /////////////
+        ///////////////////////////////////////////
+        // Given an array of ints, return true if the number
+        // of 1's is greater than the number of 4's
+
+        function more14(arr) {
+            // var output = false;
+            var has1 = 0;
+            var has4 = 0;
+
+            for (var x = 0; x < arr.length; x += 1) {
+                console.log(arr[x]);
+                if (arr[x] === 1) {
+                    has1 += 1;
+                    console.log("1: " + has1);
+                }
+                if (arr[x] === 4) {
+                    has4 += 1;
+                    console.log("4: " + has4);
+
+                }
+
+            }
+            console.log(has1 > has4);
+            return has1 > has4;
+
+            // return output;
+
+        };
+
+        more14([1, 4, 1, 4, 4, 1, 1]);
+
+
+    });
+
+</script>
+
+</body>
+</html>
