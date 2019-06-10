@@ -487,6 +487,66 @@
 
         console.log(mean([1, 2, 3]));
 
+
+        ///////////////////////////////////
+        //////////// while loop ///////////
+        ///////////////////////////////////
+        // Write a function spaces that takes a natural number n and returns a string
+        // of n spaces. spaces(1) should return ' '.
+
+        function spaces(n) {
+            var string = '';
+            while(string.length < n) {
+                string += ' ';
+            }
+            return string;
+        }
+
+        console.log(spaces(61));
+
+
+        ////////////////////////////////////////
+        //////////// do...while loop ///////////
+        ////////////////////////////////////////
+        // Write a function lcm that takes two natural numbers and calculates their least
+        // common multiple (lcm). The lcm of two natural numbers a und b is the smallest
+        // natural number that is divisible by a and b. lcm(4, 6) should return 12.
+
+        function lcm(a, b) {
+            var i = 1;
+            var j = 1;
+            var arrayOfA = [];
+            var arrayOfB = [];
+            var multiplesOfA;
+            var multiplesOfB;
+            do {
+                multiplesOfA = a * i;
+                arrayOfA.push(multiplesOfA);
+                i++;
+            } while(i < b);
+
+            do {
+                multiplesOfB = b * j;
+                arrayOfB.push(multiplesOfB);
+                j++;
+            } while(j < a);
+
+            // console.log(arrayOfA);
+            // console.log(arrayOfB);
+
+            for(var x = 0; x < arrayOfA.length; x++) {
+                for(var y = 0; y < arrayOfB.length; y++) {
+                    if(arrayOfA[x] === arrayOfB[y]) {
+                        return arrayOfA[x];
+                    }
+                }
+            }
+             return a * b;
+        }
+
+        console.log(lcm(4, 6));
+        console.log(lcm(4, 7));
+
     });
 
 
