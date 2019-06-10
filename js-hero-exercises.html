@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSHero Exercises</title>
+</head>
+<body>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+
+        ///////////////////////////////////////////
+        //////////// Function Calls /////////////
+        ///////////////////////////////////////////
+        // 1. Define a function greet returning the value 'Haydo!'.
+        // 2. Declare a variable salutation. Call the function greet and assign the result of the call to the variable salutation.
+
+
+        function greet() {
+            return 'Haydo!'
+        }
+
+        var salutation = greet();
+
+        console.log(salutation);
+
+
+        ///////////////////////////////////////////
+        //////////// String: toUpperCase() /////////////
+        ///////////////////////////////////////////
+        // Write a function toCase that takes a string and returns that string in lowercase and uppercase with - as delimiter.
+        // toCase('Mthatha') should return 'mthatha-MTHATHA'.
+
+        function toCase(input) {
+            return input.toLowerCase() + '-' + input.toUpperCase();
+        }
+
+        console.log(toCase('Mthatha'));
+
+
+        ///////////////////////////////////////////
+        //////////// String: indexOf() /////////////
+        ///////////////////////////////////////////
+        // Write a function indexOfIgnoreCase taking two strings and determining the first occurrence of
+        // the second string in the first string. The function should be case insensitive.
+        // indexOfIgnoreCase('bit','it') and indexOfIgnoreCase('bit','IT') should return 1.
+
+        function indexOfIgnoreCase(input1, input2) {
+            var x = input1.toLowerCase();
+            var y = input2.toLowerCase();
+            return x.indexOf(y);
+
+        }
+
+        console.log(indexOfIgnoreCase('bit', 'IT'));
+
+
+        ////////////////////////////////////////////////////////////
+        //////////// String: indexOf() with from index /////////////
+        ////////////////////////////////////////////////////////////
+        // Write a function secondIndexOf, taking two strings and determining the second occurrence of the second string in
+        // the first string. If the search string does not occur twice, -1 should be returned.
+        // secondIndexOf('White Rabbit', 'it') should return 10.
+
+        function secondIndexOf(string1, string2) {
+            var n1 = string1.indexOf(string2, 0);
+            var n2 = string1.indexOf(string2, n1 + 1);
+            return n2;
+        }
+
+        console.log(secondIndexOf('White Rabbit', 'it'));
+
+
+        ///////////////////////////////////////////
+        //////////// String: substr() /////////////
+        ///////////////////////////////////////////
+        // Write a function firstWord, taking a string and returning the first word in that string.
+        // The first word are all characters up to the first space. firstWord('see and stop') should return 'see'.
+
+        function firstWord(string) {
+            var x = string.indexOf(' ', 0)
+            var word = string.substr(0, x);
+            return word;
+        }
+
+        console.log(firstWord('see and stop'));
+
+
+        ///////////////////////////////////////////
+        //////////// String: replace() /////////////
+        ///////////////////////////////////////////
+        // Write a function normalize, that replaces '-' with '/' in a date string.
+        // normalize('20-05-2017') should return '20/05/2017'.
+
+        function normalize(date) {
+            for(var i = 0; i < date.length; i++) {
+                if(date[i] === '-') {
+                    var newdate = date.replace(/-/g, '/');
+                }
+            }
+            return newdate;
+        }
+
+        console.log(normalize('20-05-2017'));
+
+
+        /////////////////////////////////
+        //////////// Modulo /////////////
+        /////////////////////////////////
+        // Write a function onesDigit that takes a natural number and returns the ones digit of that number.
+        // onesDigit(2674) should return 4.
+
+        function onesDigit(int) {
+            if(10 > int > 0) {
+                return int;
+            } else {
+                return int % 10;
+            }
+        }
+
+        console.log(onesDigit(2674));
+
+
+        ///////////////////////////////
+        //////////// Math /////////////
+        ///////////////////////////////
+        // Write a function hypotenuse that calculates the length of the hypotenuse of a right triangle.
+        // The length of the two legs is passed to the function. Tip: In a right triangle the Pythagorean theorem is valid.
+        // If a and b are the lengths of the two legs and c is the length of the hypotenuse,
+        // the following is true: a² + b² = c². Since 3² + 4² = 5² applies, hypotenuse(3, 4) should return 5.
+
+        function hypotenuse(a, b) {
+            var c = Math.pow(a, 2) + Math.pow(b, 2);
+            return Math.sqrt(c);
+
+        }
+
+        console.log(hypotenuse(3, 4));
+
+
+        //////////////////////////////////////
+        //////////// min and max /////////////
+        //////////////////////////////////////
+        // Write a function midrange, that calculates the midrange of 3 numbers.
+        // The midrange is the mean of the smallest and largest number. midrange(3, 9, 1) should return (9+1)/2 = 5.
+
+        function midrange(a, b, c) {
+            var min = Math.min(a, b, c);
+            var max = Math.max(a, b, c);
+            return (max + min) / 2;
+        }
+
+        console.log(midrange(3, 9, 1));
+
+
+        //////////////////////////////////
+        //////////// Math.PI /////////////
+        //////////////////////////////////
+        // Write a function area that calculates the area of a circle.
+        // The function is given the radius of the circle. area(1) should return π and area(2) should return 4 * π.
+
+        function area(r) {
+            return Math.pow(r, 2) * Math.PI;
+
+        }
+
+        console.log(area(1));
+        console.log(area(2));
+
+
+        ///////////////////////////////////
+        //////////// Rounding /////////////
+        ///////////////////////////////////
+        // Write a function round100 that rounds a number to the nearest hundred.
+        // round100(1749) should return 1700 and round100(856.12) should return 900.
+
+        function round100(int) {
+            return Math.round(int/100)*100;
+        }
+
+        console.log(round100(1749));
+        console.log(round100(856.12));
+
+
+        /////////////////////////////////////////
+        //////////// Random numbers /////////////
+        /////////////////////////////////////////
+        // Write a function dice that returns like a dice a random number between 1 and 6.
+
+        function dice() {
+            return Math.floor((Math.random() * 6) + 1);
+        }
+
+        console.log(dice());
+
+
+        ///////////////////////////////////
+        //////////// parseInt /////////////
+        ///////////////////////////////////
+        // Write a function add that takes a string with a summation task and returns its result as a number.
+        // Two natural numbers should be added. The summation task is a string of the form '102+17'. add('102+17') should return 119.
+
+        function add(task) {
+            var n1 = parseInt(task);
+            var x = task.indexOf('+', 0);
+            var n2 = parseInt(task.substr(x + 1));
+            return n1 + n2;
+        }
+
+        console.log(add('102+17'));
+
+
+        /////////////////////////////////////////////////
+        //////////// Three identical values /////////////
+        /////////////////////////////////////////////////
+        // Write a function equals that checks 3 values for strict equality.
+        // The function should only return true if all 3 values are equal.
+        // equals(1, 1, 1) should return true and equals(1, 2, 1) should return false.
+
+        function equals(a, b, c) {
+            return a === b && b === c;
+        }
+
+        console.log(equals(1, 2, 1));
+
+
+        ////////////////////////////////////////////
+        //////////// Strict inequality /////////////
+        ////////////////////////////////////////////
+        // Write a function unequal that checks 3 values for strict inequality.
+        // The function should return true if all three parameters are strict unequal.
+        // Otherwise false. The call unequal(1, 2, 3) should return true and unequal(1, 1, 2) should return false.
+
+        function unequal(x, y, z) {
+            return x !== y && y !== z && x !== z;
+        }
+
+        console.log(unequal(1, 2, 3));
+        console.log(unequal(1, 1, 2));
+
+
+        ////////////////////////////////////////////
+        //////////// Compare numbers ///////////////
+        ////////////////////////////////////////////
+        // Write a function isThreeDigit that checks if a number is greater than or equal to 100 and less than 1000.
+        // isThreeDigit(500) should return true. The call isThreeDigit(50) should return false.
+
+        function isThreeDigit(int) {
+            return int >= 100 && int < 1000;
+        }
+
+        console.log(isThreeDigit(500));
+
+
+        //////////////////////////////////////////
+        //////////// Array: length ///////////////
+        //////////////////////////////////////////
+        // Write a function getLastElement that takes an array and returns
+        // the last element of the array. getLastElement([1, 2]) should return 2.
+
+        function getLastElement(array) {
+            return array[array.length - 1];
+        }
+
+        console.log(getLastElement([1, 2]));
+
+
+        ///////////////////////////////////////////
+        //////////// Sorting arrays ///////////////
+        ///////////////////////////////////////////
+        // Write a function sort that takes an array filled with 3 numbers and returns these
+        // 3 numbers sorted in ascending order as an array. sort([2, 3, 1]) should return [1, 2, 3].
+
+        function sort(array) {
+            for(let i = 0; i < array.length - 1; i++) {
+                for(let j = 0; j < array.length - 1; j++) {
+                    if(array[j] > array[j + 1]) {
+                        let swap = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = swap;
+                    }
+                }
+            }
+            return array;
+        }
+
+        console.log(sort([2, 1, 3]));
+
+
+        //////////////////////////////////////////////////////
+        //////////// Array: shift() and push() ///////////////
+        //////////////////////////////////////////////////////
+        // Write a function rotate that rotates the elements of an array.
+        // All elements should be moved one position to the left. The 0th element
+        // should be placed at the end of the array. The rotated array should be returned.
+        // rotate(['a', 'b', 'c']) should return ['b', 'c', 'a'].
+
+        function rotate(array) {
+            var firstElement = array.shift();
+            array.push(firstElement);
+            return array;
+        }
+
+        console.log(rotate(['a', 'b', 'c']));
+
+
+        /////////////////////////////////////////////
+        //////////// Array: indexOf() ///////////////
+        /////////////////////////////////////////////
+        // Write a function addElement that adds an element to the end of an array.
+        // However, the element should only be added if it is not already in the array.
+        // add([1, 2], 3) should return [1, 2, 3] and add([1, 2], 2) should return [1, 2].
+
+        function addElement(array, element) {
+            if(array.indexOf(element) === -1) {
+                array.push(element);
+            }
+            return array;
+        }
+
+        console.log(addElement([1, 2], 3));
+        console.log(addElement([1, 2], 2));
+
+
+
+    });
+
+
+
+
+</script>
+
+
+</body>
+</html>
