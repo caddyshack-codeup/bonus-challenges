@@ -326,6 +326,92 @@
         console.log(addElement([1, 2], 2));
 
 
+        ////////////////////////////////////////////
+        //////////// Array: concat() ///////////////
+        ////////////////////////////////////////////
+        // Write a function concatUp that concatenate two arrays. The longer array should
+        // be appended to the shorter array. If both arrays are equally long, the second array
+        // should be appended to the first array. concatUp([1, 2], [3])
+        // should return [3, 1, 2] and concatUp([5, 7], [6, 8]) should return [5, 7, 6, 8].
+
+        function concatUp(arr1, arr2) {
+            var x = arr1.length;
+            var y = arr2.length;
+            if(x > y) {
+                return arr2.concat(arr1);
+            }
+
+            return arr1.concat(arr2);
+        }
+
+        console.log(concatUp([1, 2], [3]));
+        console.log(concatUp([5, 6], [7, 8]));
+
+
+        ///////////////////////////////////////////
+        //////////// Array: slice() ///////////////
+        ///////////////////////////////////////////
+        // Write a function halve that copies the first half of an array.
+        // With an odd number of array elements, the middle element should belong to
+        // the first half. halve([1, 2, 3, 4]) should return [1, 2].
+
+        function halve(array) {
+            var x = array.length;
+            var y = x % 2;
+            var half = array.length / 2;
+            if(y === 0) {
+                return array.slice(0, half);
+            }
+            return array.slice(0, (half + 0.5));
+        }
+
+        console.log(halve([1, 2, 3, 4]));
+        console.log(halve([1, 2, 3, 4, 5]));
+
+
+        ///////////////////////////////////////////
+        //////////// Array: join() ///////////////
+        ///////////////////////////////////////////
+        // Write a function list that joins words in an array into a list.
+        // list(['Huey', 'Dewey', 'Louie']) should return 'Huey, Dewey and Louie'.
+        // The passed array contains at least two words.
+
+        function list(array) {
+            var string2 = array.slice(array.length - 1).toString();
+            var array2 = array.slice(0, array.length -1);
+            var string1 = array2.join(', ');
+            return string1 + " and " + string2;
+
+
+        }
+
+
+        console.log(list(['Huey', 'Dewey', 'Louie']));
+        console.log(list(['John', 'Paul', 'George', 'Ringo']));
+
+
+        /////////////////////////////////////////////
+        //////////// Array of arrays ////////////////
+        /////////////////////////////////////////////
+        // Write a function flat that flattens a two-dimensional array with 3 entries.
+        // flat(loshu) should return [4, 9, 2, 3, 5, 7, 8, 1, 6].
+        // Thereby loshu is the magic square from the example below
+        // .
+
+        var row1 = [4, 9, 2];
+        var row2 = [3, 5, 7];
+        var row3 = [8, 1, 6];
+        var loshu = [row1, row2, row3];
+
+        function flat(arrayOfArrays) {
+            var arr1 = arrayOfArrays[0];
+            var arr2 = arrayOfArrays[1];
+            var arr3 = arrayOfArrays[2];
+            return arr1.concat(arr2).concat(arr3);
+        }
+
+        console.log(flat([[4, 9, 2], [3, 5, 7], [8, 1, 6]]));
+        console.log(flat(loshu));
 
     });
 
