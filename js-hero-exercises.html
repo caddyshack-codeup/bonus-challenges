@@ -395,8 +395,7 @@
         /////////////////////////////////////////////
         // Write a function flat that flattens a two-dimensional array with 3 entries.
         // flat(loshu) should return [4, 9, 2, 3, 5, 7, 8, 1, 6].
-        // Thereby loshu is the magic square from the example below
-        // .
+        // Thereby loshu is the magic square from the example below.
 
         var row1 = [4, 9, 2];
         var row2 = [3, 5, 7];
@@ -412,6 +411,81 @@
 
         console.log(flat([[4, 9, 2], [3, 5, 7], [8, 1, 6]]));
         console.log(flat(loshu));
+
+
+        /////////////////////////////////////////////
+        //////////// Median of numbers ////////////////
+        /////////////////////////////////////////////
+        // Write a function median that takes an array of ascending numbers and returns
+        // the median of that numbers. median([1, 2, 10]) should return 2 and
+        // median([1, 2, 10, 100]) should return 6.
+
+        function median(array) {
+            var x = array.length;
+            var y = x / 2;
+            if(x % 2 === 0) {
+                return (array[y] + array[y - 1]) / 2;
+            }
+            return array[y - 0.5]
+        }
+
+        console.log(median([1, 2, 10]));
+        console.log(median([1, 2, 10, 100]));
+
+
+        ///////////////////////////////////
+        //////////// for loop /////////////
+        ///////////////////////////////////
+        // Write a function addTo that accepts a number as a parameter and adds all
+        // natural numbers smaller or equal than the parameter. The result is to be
+        // returned. addTo(3) should return 1+2+3 = 6.
+
+        function addTo(int) {
+            var sum = 0;
+            for(var i = 1; i <= int; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        console.log(addTo(3));
+        console.log(addTo(9));
+
+
+        ///////////////////////////////////
+        //////////// Factorial ////////////
+        ///////////////////////////////////
+        // Write a function factorial that calculates the factorial of a positive integer.
+        // factorial(3) should return 6.
+
+        function factorial(int) {
+            var product = 1;
+            for(var i = 1; i <= int; i++) {
+                product *= i;
+            }
+
+            return product;
+        }
+
+        console.log(factorial(3));
+
+
+        /////////////////////////////////////////////
+        //////////// Loops and arrays ////////////////
+        /////////////////////////////////////////////
+        // Write a function mean that accepts an array filled with numbers and returns the
+        // arithmetic mean of those numbers. mean([1, 2, 3]) should return (1+2+3)/3 = 2.
+
+        function mean(array) {
+            var sum = 0;
+            for(var i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+
+            return sum/array.length;
+        }
+
+        console.log(mean([1, 2, 3]));
 
     });
 
