@@ -505,9 +505,9 @@
         console.log(spaces(61));
 
 
-        ////////////////////////////////////////
-        //////////// do...while loop ///////////
-        ////////////////////////////////////////
+        //////////////////////////////////////////////
+        //////////// do...while loop (LCM) ///////////
+        //////////////////////////////////////////////
         // Write a function lcm that takes two natural numbers and calculates their least
         // common multiple (lcm). The lcm of two natural numbers a und b is the smallest
         // natural number that is divisible by a and b. lcm(4, 6) should return 12.
@@ -546,6 +546,52 @@
 
         console.log(lcm(4, 6));
         console.log(lcm(4, 7));
+
+
+        //////////////////////////////////////////////
+        //////////// do...while loop (GCD) ///////////
+        //////////////////////////////////////////////
+        // Write a function gcd that takes two natural numbers and calculates their gcd.
+        // gcd(6, 15) should return 3.
+
+        function gcd(a, b) {
+            var i = 1;
+            var j = 1;
+            var arrayOfA = [];
+            var arrayOfB = [];
+            var multiplesOfA;
+            var multiplesOfB;
+            do {
+                multiplesOfA = a * i;
+                arrayOfA.push(multiplesOfA);
+                i++;
+            } while(i < b);
+
+            do {
+                multiplesOfB = b * j;
+                arrayOfB.push(multiplesOfB);
+                j++;
+            } while(j < a);
+
+            for(var x = 0; x < arrayOfA.length; x++) {
+                for(var y = 0; y < arrayOfB.length; y++) {
+                    if(arrayOfA[x] === arrayOfB[y]) {
+                        return (a * b) / arrayOfA[x];
+                    }
+                }
+            }
+            return (a * b) / (a * b);
+        }
+
+        ////////
+        // or...
+        ////////
+        // function gcd(a, b) {
+        //     return a * b / lcm(a, b);
+        // }
+
+        console.log(gcd(6, 15));
+        console.log(gcd(4, 7));
 
     });
 
