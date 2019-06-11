@@ -628,6 +628,27 @@
         console.log(isPrime(4));
 
 
+        ///////////////////////////////////
+        ///////// Nested loops ////////////
+        ///////////////////////////////////
+        // Write a function sum that calculates the sum of all elements of a
+        // two-dimensional array. sum([[1, 2], [3]]) should return 6.
+
+        function sum(arrayOfArrays) {
+            var sum = 0;
+            for(var i = 0; i < arrayOfArrays.length; i++) {
+                for(var j = 0; j < arrayOfArrays[i].length; j++) {
+                    sum += arrayOfArrays[i][j];
+                }
+            }
+            return sum;
+        }
+
+        console.log(sum([[1, 7, 3], [2, 8, 5], [9, 0, 4]]));
+        console.log(sum([[1, 2], [3]]));
+
+
+
     });
 
 
