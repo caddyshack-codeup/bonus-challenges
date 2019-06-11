@@ -671,6 +671,33 @@
         console.log(max(1, 2));
         console.log(max(2, 3, 1));
 
+
+        ////////////////////////////////////////
+        //////////// String: split() ///////////
+        ////////////////////////////////////////
+        // Write a function addFromSplit that takes a string with a summation task and
+        // returns its result as a number. A finite number of natural numbers
+        // should be added. The summation task is a string of the
+        // form '1+19+...+281'. add('7+12+100') should return 119.
+
+
+        function addFromSplit(string) {
+            var sum = 0;
+            var parts = string.split('+');
+            // console.log(parts);
+            for(let part of parts) {
+            // for(var i = 0; i < parts.length; i++) {
+            //     console.log(parts[i]);
+                sum += parseInt(part);
+            }
+            return sum;
+        }
+
+        console.log(addFromSplit("7+12+100"));
+
+
+
+
     });
 
 
