@@ -541,7 +541,9 @@
                     }
                 }
             }
+
              return a * b;
+
         }
 
         console.log(lcm(4, 6));
@@ -580,7 +582,9 @@
                     }
                 }
             }
+
             return (a * b) / (a * b);
+
         }
 
         ////////
@@ -592,6 +596,37 @@
 
         console.log(gcd(6, 15));
         console.log(gcd(4, 7));
+
+
+        ///////////////////////////////////
+        ///////// Prime numbers ///////////
+        ///////////////////////////////////
+        // Write a function isPrime that checks whether a passed number is
+        // prime. In case of a prime number it should return true, otherwise
+        // false. The call isPrime(2) should return true and isPrime(4)
+        // should return false.
+
+        function isPrime(int) {
+            var array = [];
+
+            if(int === 1) return false;
+
+            for(var i = 1; i < int; i++) {
+                array.push(i);
+            }
+
+            for(var j = 1; j < array.length; j++) {
+                if(int % array[j] === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        console.log(isPrime(3));
+        console.log(isPrime(4));
+
 
     });
 
