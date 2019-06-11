@@ -648,6 +648,28 @@
         console.log(sum([[1, 2], [3]]));
 
 
+        //////////////////////////////////////////////
+        //////////// The arguments object ////////////
+        //////////////////////////////////////////////
+        // Write a function max that calculates the maximum of an arbitrary
+        // number of numbers. max(1, 2) should return 2 and max(2, 3, 1)
+        // should return 3.
+
+        function max() {
+            for(var i = 0; i < arguments.length; i++) {
+                for(var j = 0; j < arguments.length; j++) {
+                    if(arguments[j] > arguments[j + 1]) {
+                        var temp = arguments[j];
+                        arguments[j] = arguments[j + 1];
+                        arguments[j + 1] = temp;
+                    }
+                }
+            }
+            return arguments[arguments.length - 1];
+        }
+
+        console.log(max(1, 2));
+        console.log(max(2, 3, 1));
 
     });
 
