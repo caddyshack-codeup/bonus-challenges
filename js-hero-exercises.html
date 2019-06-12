@@ -789,6 +789,10 @@
         function roman(integer) {
             var number = integer.toString();
             var numArray = number.split('');
+            if(integer <= 0) {
+                console.log('Sorry, you must enter a number between 1 and 3999.');
+                return;
+            }
             if(integer > 3999) {
                 console.log('Sorry, that number is too big. It must be a number below 4000.');
                 return;
@@ -855,7 +859,27 @@
 
         }
 
-        console.log(roman(9));
+        console.log(roman(10));
+
+
+        ////////////////////////////////////////
+        //////////// Sum of digits /////////////
+        ////////////////////////////////////////
+        // Write a function digitsum that calculates the digit sum of an
+        // integer. The digit sum of an integer is the sum of all its digits.
+        // digitsum(192) should return 12.
+
+        function digitsum(integer) {
+            var sum = 0;
+            var numString = integer.toString();
+            var numArray = numString.split('');
+            for(let num of numArray) {
+                sum += parseInt(num);
+            }
+            return sum;
+        }
+
+        console.log(digitsum(192));
 
 
 
