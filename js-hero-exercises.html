@@ -684,7 +684,7 @@
         function addFromSplit(string) {
             var sum = 0;
             var parts = string.split('+');
-            // console.log(parts);
+            console.log(parts);
             for(let part of parts) {
             // for(var i = 0; i < parts.length; i++) {
             //     console.log(parts[i]);
@@ -735,6 +735,123 @@
         console.log(arabic('CDLXXXIII'));
         console.log(arabic('MCMLXXXIII'));
         console.log(arabic('M'));
+
+
+        function ones(num) {
+            if(num === 1) return 'I';
+            if(num === 2) return 'II';
+            if(num === 3) return 'III';
+            if(num === 4) return 'IV';
+            if(num === 5) return 'V';
+            if(num === 6) return 'VI';
+            if(num === 7) return 'VII';
+            if(num === 8) return 'VIII';
+            if(num === 9) return 'IX';
+        }
+
+        function tens(num) {
+            if(num === 1) return 'X';
+            if(num === 2) return 'XX';
+            if(num === 3) return 'XXX';
+            if(num === 4) return 'XL';
+            if(num === 5) return 'L';
+            if(num === 6) return 'LX';
+            if(num === 7) return 'LXX';
+            if(num === 8) return 'LXXX';
+            if(num === 9) return 'XC';
+        }
+
+        function hundreds(num) {
+            if(num === 1) return 'C';
+            if(num === 2) return 'CC';
+            if(num === 3) return 'CCC';
+            if(num === 4) return 'CD';
+            if(num === 5) return 'D';
+            if(num === 6) return 'DC';
+            if(num === 7) return 'DCC';
+            if(num === 8) return 'DCCC';
+            if(num === 9) return 'CM';
+        }
+
+        function thousands(num) {
+            if(num === 1) return 'M';
+            if(num === 2) return 'MM';
+            if(num === 3) return 'MMM';
+        }
+
+
+        function roman(integer) {
+            var number = integer.toString();
+            var numArray = number.split('');
+            if(integer > 3999) {
+                console.log('Sorry, that number is too big. It must be a number below 4000.');
+                return;
+            }
+
+            if(numArray.length === 4) {
+                var thous = parseInt(numArray[0]);
+                var hunds = parseInt(numArray[1]);
+                var tenths = parseInt(numArray[2]);
+                var oners = parseInt(numArray[3]);
+                if(oners === 0 && tenths === 0 && hunds === 0) {
+                    var output = thousands(thous);
+                } else if (tenths === 0 && hunds === 0) {
+                    var output = thousands(thous) + ones(oners);
+                } else if (oners === 0 && hunds === 0) {
+                    var output = thousands(thous) + tens(tenths);
+                } else if(oners === 0 && tenths === 0) {
+                    var output = thousands(thous) + hundreds(hunds);
+                } else if(hunds === 0) {
+                    var output = thousands(thous) + tens(tenths) + ones(oners);
+                } else if(tenths === 0) {
+                    var output = thousands(thous) + hundreds(hunds) + ones(oners);
+                } else if(oners === 0) {
+                    var output = thousands(thous) + hundreds(hunds) + tens(tenths);
+                } else {
+                    var output = thousands(thous) + hundreds(hunds) + tens(tenths) + ones(oners);
+                }
+            }
+
+            if(numArray.length === 3) {
+                var hunds = parseInt(numArray[0]);
+                var tenths = parseInt(numArray[1]);
+                var oners = parseInt(numArray[2]);
+                if(oners === 0 && tenths === 0) {
+                    var output = hundreds(hunds);
+                } else if(tenths === 0) {
+                    var output = hundreds(hunds) + ones(oners);
+                } else if(oners === 0) {
+                    var output = hundreds(hunds) + tens(tenths);
+                } else {
+                    var output = hundreds(hunds) + tens(tenths) + ones(oners);
+                }
+
+            }
+
+            if(numArray.length === 2) {
+                var tenths = parseInt(numArray[0]);
+                var oners = parseInt(numArray[1]);
+                if(oners === 0) {
+                    var output = tens(tenths);
+                } else {
+                    var output = tens(tenths) + ones(oners);
+                }
+
+            }
+
+            if(numArray.length === 1) {
+                var oners = parseInt(numArray[0]);
+                var output = ones(oners);
+            }
+
+
+            return output;
+
+        }
+
+        console.log(roman(9));
+
+
 
     });
 
