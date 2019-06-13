@@ -859,7 +859,7 @@
 
         }
 
-        console.log(roman(10));
+        console.log(roman(1989));
 
 
         ////////////////////////////////////////
@@ -881,6 +881,22 @@
 
         console.log(digitsum(192));
 
+
+        /////////////////////////////////////////////
+        //////////// Fibonacci sequence /////////////
+        /////////////////////////////////////////////
+        function fibo(num1, num2, length, count) {
+
+            if(count < length) {
+                var newnum = num1 + num2;
+                console.log(newnum);
+                fibo(num2, newnum, length, ++count);
+            }
+        }
+
+        console.log("0");
+        console.log("1");
+        fibo(0, 1, 10, 2);
 
 
     });
